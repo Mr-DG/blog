@@ -1,0 +1,204 @@
+:root {
+  --my-pink: linear-gradient(to right, #FE4F70 0, #FFA387 100%);
+  --my-pink-top: linear-gradient(to top, #FE4F70 0, #FFA387 100%);
+  --hover-color: #fe4f70;
+  --module-color: rgba(255, 255, 255, .7);
+  --module-border-color: linear-gradient(to left, #bbb 0, transparent 100%);
+  --module-border-color-reverse: linear-gradient(to right, #bbb 0, transparent 100%);
+}
+
+::selection {
+  // 文字选中样式
+  color: #fff;
+  background-color: rgb(254, 79, 112);
+}
+
+body {
+  background: url('../imgs/bg.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+
+img {
+  -webkit-user-drag: none; // 禁止拖动图片
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* 布局相关 */
+.main {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.main-left {
+  width: 65%;
+  margin-right: 25px;
+}
+
+@media screen and (max-width: 1000px) {
+  .main-left {
+    margin-right: 0;
+  }
+}
+
+.main-right {
+  width: 35%;
+}
+
+.flex {
+  display: flex;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.jcsa {
+  justify-content: space-around;
+}
+
+.aic {
+  align-items: center;
+}
+
+.fdc {
+  flex-direction: column;
+}
+
+.fdr {
+  flex-direction: row;
+}
+
+
+/* 抽离常用属性 */
+.gray {
+  color: #444;
+}
+
+.b-gray {
+  border: 1px solid #EBEBEB;
+}
+
+.br10 {
+  border-radius: 10px;
+}
+
+.br50 {
+  border-radius: 50%;
+}
+
+/* 字体大小 */
+.font(@i) when(@i <=28) {
+  .f@{i} {
+    font-size: @i + 0px;
+  }
+
+  .font(@i + 2);
+}
+
+.font(12);
+
+.t1 {
+  font-size: 24px;
+}
+
+.t2 {
+  font-size: 20px;
+}
+
+.t3,
+.c {
+  font-size: 16px;
+  -webkit-line-clamp: 3;
+}
+
+.t1,
+.t2,
+.t3,
+.c {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.t1,
+.t2,
+.t3 {
+  -webkit-line-clamp: 2;
+}
+
+.d {
+  font-size: 14px;
+}
+
+.fw600 {
+  font-weight: 600;
+}
+
+// 行高
+.l15 {
+  line-height: 1.5;
+}
+
+.l17 {
+  line-height: 1.7;
+}
+
+.cpink {
+  color: #ffa287;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+// 滚动条样式
+/* 整个滚动条 */
+::-webkit-scrollbar {
+  /* 对应纵向滚动条的宽度 */
+  width: 8px;
+  /* 对应横向滚动条的宽度 */
+  height: 10px;
+}
+
+/* 滚动条上的滚动滑块 */
+::-webkit-scrollbar-thumb {
+  background: var(--my-pink-top);
+  border-radius: 32px;
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 32px;
+}
+
+@media screen and (max-width: 1000px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.div-glass {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  /* 主要内容 */
+  background: rgba(255, 255, 255, .5);
+  /* 模糊大小就是靠的blur这个函数中的数值大小 */
+  backdrop-filter: blur(30px);
+}

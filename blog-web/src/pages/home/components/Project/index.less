@@ -1,0 +1,29 @@
+.project-left {
+  width: 50%;
+  box-sizing: border-box;
+  padding-right: 12px;
+}
+
+.project-right {
+  width: 50%;
+  box-sizing: border-box;
+  padding-left: 12px;
+}
+
+
+@media screen and (max-width: 650px) {
+
+  .home-project {
+
+    flex-wrap: wrap;
+
+    .project-left,
+    .project-right {
+      width: 100%;
+    }
+
+    .project-left {
+      margin-bottom: 30px;
+    }
+  }
+}

@@ -1,11 +1,9 @@
-import React from 'react'
-import HeaderNav from './components/HeaderNav'
+import router from '@/routes'
+import { RouterProvider } from 'react-router-dom'
 
 function App() {
   return (
-    <div>
-      <HeaderNav />
-    </div>
+    <RouterProvider router={router} />
   )
 }
 

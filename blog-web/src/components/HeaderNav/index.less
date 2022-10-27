@@ -1,0 +1,110 @@
+.header-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  box-shadow: 0 0px 6px 1px rgb(133 133 133 / 60%);
+
+  .glass {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    /* 主要内容 */
+    background: rgba(255, 255, 255, .7);
+    /* 模糊大小就是靠的blur这个函数中的数值大小 */
+    backdrop-filter: blur(30px);
+  }
+
+  .header-container {
+    height: 60px;
+    padding: 0 30px;
+
+    .header-left {
+      font-size: 30px;
+      align-items: center;
+    }
+
+    .header-mid {
+      flex: 1;
+
+      ul {
+        width: 100%;
+        height: 100%;
+
+        li {
+          margin: 0 10px;
+          padding: 8px 25px;
+          border-radius: 25px;
+          cursor: pointer;
+
+          &:not(.active):hover {
+            color: black;
+          }
+        }
+
+        .active {
+          color: #FFF;
+          background: var(--my-pink);
+        }
+      }
+    }
+
+    .header-right {
+
+      .search,
+      .drawer {
+        margin: 0 5px;
+
+        svg {
+          width: 60%;
+          height: 60%;
+          color: #fff;
+        }
+      }
+
+      .drawer {
+        display: none;
+      }
+
+      .icon-btn {
+        width: 35px;
+        height: 35px;
+        background: var(--my-pink);
+        border-radius: 50%;
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%);
+        cursor: pointer;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  .header-nav {
+
+    .header-container {
+
+      .header-mid {
+
+        // display: none;
+        ul {
+          display: none;
+        }
+
+      }
+
+      .header-right {
+
+        .drawer {
+          display: flex;
+
+        }
+      }
+    }
+
+  }
+}
