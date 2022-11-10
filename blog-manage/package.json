@@ -26,7 +26,9 @@
     "unplugin-vue-components": "^0.22.9",
     "vite": "^3.0.9",
     "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-windicss": "^1.8.8",
     "vite-svg-loader": "^3.6.0",
-    "vue-tsc": "^0.40.7"
+    "vue-tsc": "^0.40.7",
+    "windicss": "^3.5.6"
   }
 }

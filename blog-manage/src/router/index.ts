@@ -1,23 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Test from 'components/Test/test.vue'
+import outsideLayout from './outsideLayout'
+// 路由守卫
+import { createRouterGuards } from './router-guards';
+// 路由白名单
+import { whiteNameList } from './constant';
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'test',
-      component: Test
+export const routes = [
+  {
+    path: '/',
+    name: 'Layout',
+    // redirect: '/home',
+    component: () => import('@/layout/index.vue'),
+    meta: {
+      title: '首页',
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // component: () => import('../views/AboutView.vue')
-    // }
-  ]
+    children: [],
+  },
+  // Layout之外的路由(Login...)
+  ...outsideLayout,
+]
+
+export const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes
 })
+
+// 创建路由守卫
+createRouterGuards(router, whiteNameList)
 
 export default router

@@ -14,6 +14,8 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import viteCompression from 'vite-plugin-compression'
 // ------svg配置------
 import svgLoader from 'vite-svg-loader'
+// ------css框架------
+import WindiCSS from 'vite-plugin-windicss'
 
 // ------获取别名路径------
 const getPath = (path: string) => fileURLToPath(new URL(path, import.meta.url))
@@ -48,7 +50,8 @@ export default defineConfig(({ mode }) => {
         ext: '.gz',        // 压缩包后缀
         deleteOriginFile: false // 压缩后是否删除源文件
       }),
-      svgLoader()
+      svgLoader(),
+      WindiCSS()
     ],
     resolve: {
       // ------配置别名------
@@ -97,6 +100,7 @@ export default defineConfig(({ mode }) => {
           assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
         },
       },
+      minify: 'terser'
     },
     // ------支持less------
     css: {
