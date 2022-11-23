@@ -66,15 +66,14 @@ export default defineConfig(({ mode }) => {
     // ------服务配置------
     server: {
       host: true, // host设置为true才可以使用network的形式，以ip访问项目
-      port: 8080, // 端口号
+      port: 8899, // 端口号
       open: true, // 自动打开浏览器
       cors: true, // 跨域设置允许
       strictPort: true, // 如果端口已占用直接退出
       // 接口代理
       proxy: {
         '/api': {
-          // target: 'http://localhost:3001/',  // 本地 8080 前端代码的接口 代理到 3001 的服务端口
-          target: env.VITE_PROXY_URL || 'http://localhost:3001/',
+          target: env.VITE_BASE_URL || 'http://localhost:8888/',
           changeOrigin: true, // 允许跨域
           rewrite: (path) => path.replace('/api/', '/'),
         },

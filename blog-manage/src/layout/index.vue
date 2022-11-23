@@ -1,22 +1,22 @@
 <template>
-  <a-layout class="flex h-100vh">
+  <a-layout class="h-100vh overflow-hidden">
     <!-- menu -->
     <a-layout-sider
-      :trigger="null"
-      :style="{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0, top: 0, bottom: 0 }"
+      v-model:collapsed="collapsed"
       collapsible
-      class="sider-box">
+      :trigger="null"
+      class="sider-box overflow-auto">
       <Logo />
-      <AsideMenu />
+      <AsideMenu v-model:collapsed="collapsed" />
     </a-layout-sider>
-    <a-layout theme="light">
+    <a-layout>
       <!-- header -->
-      <PageHeader></PageHeader>
+      <PageHeader v-model:collapsed="collapsed"></PageHeader>
       <!-- content -->
-      <a-layout-content>
+      <a-layout-content class="flex flex-col">
         <TabsView />
       </a-layout-content>
-      <PageFooter />
+      <!-- <PageFooter /> -->
     </a-layout>
   </a-layout>
 </template>
@@ -24,12 +24,11 @@
 <script setup lang="ts">
 import AsideMenu from './menu/index.vue'
 import PageHeader from './header/index.vue'
-import PageFooter from './footer/index.vue'
+// import PageFooter from './footer/index.vue'
 import TabsView from './tabs/index.vue'
 import Logo from './logo/index.vue'
 
-// const collapsed = ref<boolean>(false)
-
+const collapsed = ref<boolean>(false)
 </script>
 
 <style scoped lang="less">
