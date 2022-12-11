@@ -15,6 +15,9 @@ const setupApp = () => {
   app.use(router)
   // 挂载app
   app.mount('#app')
+  if (true) {
+    console.log(123)
+  }
 }
 
 
